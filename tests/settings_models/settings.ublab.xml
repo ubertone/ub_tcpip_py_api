@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?><body>
+	<ucf_version>3.0</ucf_version> <!-- given : >= 2.0 -->
+	<system>UB-Lab</system>
+	<ref use="auto">99</ref>		<!-- accepte use="auto" : generate a random number (100-999), given  (! auto + given = erreur !) -->
+	<temperature use="none"/>			<!-- accepte use="auto" : measure temperature from Pt-100, use="none" : expect sound speed, use="default" : 20.0°C, given -->
+	<sound_speed use="given">1480</sound_speed>	<!-- accepte use="auto" : calculate celerity from temperature (updated), use="none" : from temperature but no update, use="default" : 1480.0 m/s, given -->
+	<trigger>none</trigger>
+	<operator/>
+	<comments/>
+
+	<sequence>
+		<config id="num1">			<!-- s'attend à un id="numxx", xx=1-16. Extrait les configs dans l'ordre, de num1 à num16-->
+			<name>config 1</name>
+			<tr_out>1</tr_out>					<!-- given -->
+			<tr_disposition>monostatic</tr_disposition>	<!-- accepte use="default" : monostatic, given : monostatic,  bistatique, transit  (! auto + given = erreur !) -->
+			
+			<f0 mult="1e6">1.500</f0>				<!-- given -->
+			<prf>900</prf>							<!-- given -->
+			<n_ech>128</n_ech>				<!-- given : 2-128 -->
+			<method>ppc_cont</method>			<!-- accepte use="default" : ppc_cont, given : ppc_vol, ppc_cont, corr_ampl, corr_mixte, ... (! auto + given = erreur !) -->
+			<v_min>-0.040</v_min>					<!-- accept use="default" : v_min=-RNy/2, given  (! auto + given = erreur !)-->
+			<v_min_2 use="default"/>			<!-- Takes the given value or default (use="default": symetric velocity range), element is not required (then uses default value)-->
+			
+			<r_vol1 mult="1e-3">30.92</r_vol1>			<!-- given -->
+			<r_dvol mult="1e-3">11.01</r_dvol>			<!-- accepte use="default" : taille minimale possible en fonction de n_subvol, given (! auto + given = erreur !) -->
+			<r_dsubvol mult="1e-3">0.355</r_dsubvol><!-- accepte use="default" : distance par défault (1 seule possible), given (! auto + given = erreur !) -->
+			<n_vol>73</n_vol>				<!-- given : 1-200, limite : n_vol*n_subvol <= 200 -->
+			<n_subvol>1</n_subvol>			<!-- accepte use="none" : force n_subvol à 1, given : 1-200, limite : n_vol*n_subvol <= 200 (! auto + given = erreur !) -->
+			
+			<r_em mult="1e-3">11.01</r_em>	<!-- given : 0-xx -->
+			<V_em>30</V_em>					<!-- Takes the given value (30 or 60, units: Volts) or default (use="default": 30) -->
+			<gain_function><a0 use="auto"></a0><a1 use="auto"></a1></gain_function>	<!-- accepte use="auto" : gain change over time, given : gain statique avec a0=0-68.0 / a1=0.0-xx -->
+			
+			<n_profile>20</n_profile>		<!-- given : 1-65000 -->
+			<moving_avr use="default"/>		<!-- accepte use="default" : 2/n_profile, use="None" : 1, given -->
+			
+			<phase_coding>True</phase_coding>				<!-- accepte use="default" : true, use="None" : false, given -->
+			<static_echo_filter>False</static_echo_filter>	<!-- accepte use="default" : true, use="None" : false, given (! auto + given = erreur !) -->
+			<IQ_latency>false</IQ_latency>
+		</config>
+		<config id="num2">			<!-- s'attend à un id="numxx", xx=1-16. Extrait les configs dans l'ordre, de num1 à num16-->
+			<name>config 2</name>
+			<tr_out>3</tr_out>					<!-- given -->
+			<tr_disposition>monostatic</tr_disposition>	<!-- accepte use="default" : monostatic, given : monostatic,  bistatique, transit  (! auto + given = erreur !) -->
+			
+			<f0 mult="1e6">2.88</f0>				<!-- given -->
+			<prf>700</prf>							<!-- given -->
+			<n_ech>128</n_ech>				<!-- given : 2-128 -->
+			<method>ppc_cont</method>			<!-- accepte use="default" : ppc_cont, given : ppc_vol, ppc_cont, corr_ampl, corr_mixte, ... (! auto + given = erreur !) -->
+			<v_min>-0.1</v_min>					<!-- accept use="default" : v_min=-RNy/2, given  (! auto + given = erreur !)-->
+			<v_min_2 use="default"/>			<!-- Takes the given value or default (use="default": symetric velocity range), element is not required (then uses default value)-->
+			
+			<r_vol1 mult="1e-3">19.11</r_vol1>			<!-- given -->
+			<r_dvol mult="1e-3">10.08</r_dvol>			<!-- accepte use="default" : taille minimale possible en fonction de n_subvol, given (! auto + given = erreur !) -->
+			<r_dsubvol mult="1e-3">0.355</r_dsubvol><!-- accepte use="default" : distance par défault (1 seule possible), given (! auto + given = erreur !) -->
+			<n_vol>104</n_vol>				<!-- given : 1-200, limite : n_vol*n_subvol <= 200 -->
+			<n_subvol>1</n_subvol>			<!-- accepte use="none" : force n_subvol à 1, given : 1-200, limite : n_vol*n_subvol <= 200 (! auto + given = erreur !) -->
+			
+			<r_em mult="1e-3">11.01</r_em>	<!-- given : 0-xx -->
+			<V_em>30</V_em>					<!-- Takes the given value (30 or 60, units: Volts) or default (use="default": 30) -->
+			<gain_function><a0 use="auto"></a0><a1 use="auto"></a1></gain_function>	<!-- accepte use="auto" : gain change over time, given : gain statique avec a0=0-68.0 / a1=0.0-xx -->
+		
+			<n_profile>20</n_profile>		<!-- given : 1-65000 -->
+			<moving_avr use="default"/>		<!-- accepte use="default" : 2/n_profile, use="None" : 1, given -->
+			
+			<phase_coding>True</phase_coding>				<!-- accepte use="default" : true, use="None" : false, given -->
+			<static_echo_filter>False</static_echo_filter>	<!-- accepte use="default" : true, use="None" : false, given (! auto + given = erreur !) -->
+			<IQ_latency>false</IQ_latency>
+		</config>
+	</sequence>
+
+	<geometry>
+		<tr1>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr1>
+		<tr2>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr2>
+		<tr3>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr3>
+		<tr4>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr4>
+		<tr5>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr5>
+		<tr6>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr6>
+		<tr7>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr7>
+		<tr8>
+			<beta>90</beta>
+			<y0>0</y0>
+		</tr8>
+	</geometry>
+
+
+	<calibration>
+		<a0_tpt100>-250.41</a0_tpt100> 	<!-- given -->
+		<a1_tpt100>0.09683</a1_tpt100>	<!-- given -->
+		<a0_tboard>-50.</a0_tboard>		<!-- accepte use="default" : default value (!! Dans le driver, la valeur par défaut c'est 0. !!), given (! auto + given = erreur !) -->
+		<a1_tboard>0.07326</a1_tboard>	<!-- accepte use="default" : default value, given (! auto + given = erreur !) -->
+	</calibration>
+
+</body>
