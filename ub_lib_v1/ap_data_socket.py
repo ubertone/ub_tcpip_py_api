@@ -114,7 +114,7 @@ class ApDataSocket(UbClassTemplate):
 	def __init__(self, _host, _port, _is_reset=Event()):
 		UbClassTemplate.__init__(self)
 
-		self.flag_debug_mess=True
+		self.flag_debug_mess=False
 		self.debug_marker_start=txt_regular_blue
 		self.debug("init")
 		self.version="1.02"

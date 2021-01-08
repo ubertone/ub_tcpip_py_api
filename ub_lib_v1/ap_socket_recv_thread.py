@@ -25,7 +25,7 @@ class ApSocketRecvTh(Thread, UbClassTemplate):
 	def __init__(self, _data_socket, _host, _port):
 		UbClassTemplate.__init__(self)
 
-		self.flag_debug_mess=True
+		self.flag_debug_mess=False
 		self.debug_marker_start=txt_regular_purple
 		Thread.__init__(self)
 		self.daemon = True # force l'arrêt du thread en cas d'arret du programme
